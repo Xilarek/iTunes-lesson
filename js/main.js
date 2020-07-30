@@ -2,6 +2,7 @@ import { radioPlayerInit } from './radioPlayer.js';
 import { musicPlayerInit } from './musicPlayer.js';
 import { videoPlayerInit } from './videoPlayer.js';
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const playerBtn = document.querySelectorAll('.player-btn'),
           playerBlock = document.querySelectorAll('.player-block'),
@@ -11,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
             temp.style.display = 'none';
             playerBlock.forEach( item => item.classList.remove('active'));
             playerBtn.forEach( item => item.classList.remove('active'));
+
+            musicPlayerInit.stop();
+            videoPlayerInit.stop();
+            radioPlayerInit.stop();
         };
     
         playerBtn.forEach((btn, i) => {
@@ -25,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 videoPlayerInit();
 radioPlayerInit();
+musicPlayerInit();
 
 
 

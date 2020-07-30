@@ -9,6 +9,7 @@ export const radioPlayerInit = () => {
     
     const audio = new Audio();
     audio.type = 'audio/aac';
+    
 
     radioStop.disabled = true;
 
@@ -61,4 +62,9 @@ export const radioPlayerInit = () => {
     });
 
     radioVolume.value - audio.volume * 100;
+
+    radioPlayerInit.stop = () => {
+        audio.pause();
+        changeIconPlay();
+    };
 };

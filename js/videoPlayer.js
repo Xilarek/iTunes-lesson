@@ -1,3 +1,4 @@
+import { addZero } from './supscript.js';
 export const videoPlayerInit = () => {
     const videoPlayer = document.querySelector('.video-player'),
           videoButtonPlay = document.querySelector ('.video-button__play'),
@@ -33,8 +34,6 @@ export const videoPlayerInit = () => {
         toggleIcon();
     };
 
-    const addZero = n => n < 10 ? '0' + n : n;
-    
     videoPlayer.addEventListener('click', togglePlay);
     videoButtonPlay.addEventListener('click', togglePlay);
 
@@ -70,4 +69,11 @@ export const videoPlayerInit = () => {
 
         videoPlayer.currentTime = (value * duration) / 100;
     });
+
+    videoPlayerInit.stop = () => {
+        if (!videoPlayer.paused) {
+            stopPlay();
+        }
+    }
 };
+
